@@ -1245,8 +1245,11 @@
 
 <script>
   // Nav scroll effect
-  window.addEventListener('scroll', () => {
+window.addEventListener('scroll', () => {
     document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 40);
+    const bottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 150;
+    document.querySelector('.floating-cta').style.opacity = bottom ? '0' : '1';
+    document.querySelector('.floating-cta').style.pointerEvents = bottom ? 'none' : 'auto';
   });
 
   // Mobile menu
